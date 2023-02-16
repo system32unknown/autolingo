@@ -114,7 +114,7 @@ export default class DuolingoChallenge extends ReactUtils {
                 this.solve_match();
                 break;
             case "characterTrace":
-                this.skip_trace();
+                this.skip_speak();
                 break;
             default:
                 const error_string = `AUTOLINGO - UNKNOWN CHALLENGE TYPE: ${this.challenge_type}`;
@@ -124,10 +124,6 @@ export default class DuolingoChallenge extends ReactUtils {
     };
 
     skip_speak() {
-        document.querySelector("[data-test='player-skip']")?.click();
-    }
-
-    skip_trace() {
         document.querySelector("[data-test='player-skip']")?.click();
     }
 
