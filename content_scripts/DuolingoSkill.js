@@ -40,7 +40,9 @@ export default class DuolingoSkill extends ReactUtils {
 
   end() {
     clearInterval(this.state_machine);
-    this.current_challenge.end();
+    if (this.current_challenge != null) {
+      this.current_challenge.end();
+    }
     console.logger("Lesson complete, stopping the autocompleter!");
   }
 
@@ -135,6 +137,7 @@ export default class DuolingoSkill extends ReactUtils {
         }
         break;
       // little ad that pops up
+      case "LEGENDARY_DUO":
       case "PLUS_AD":
         this.current_challenge = new DuolingoChallenge();
         this.current_challenge.click_next();

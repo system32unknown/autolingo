@@ -27,7 +27,7 @@ chrome.storage.local.get("autolingo_enabled", (response) => {
     injectScript("content_scripts/script.js");
 
     // add a listener that forwards messages to the injected script
-    chrome.runtime.onMessage.addListener((message, _, _) => {
+    chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
       switch (message.action) {
         case "solve_challenge":
           send_custom_event("solve_challenge");
